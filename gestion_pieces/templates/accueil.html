@@ -1,0 +1,539 @@
+{% load static %}
+{% include 'header.html' %}
+<body>
+  {% block content %}
+  <!--Main Navigation-->
+    <header>
+      <style>
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+        
+            height: 100vh;
+        }
+
+         /* Première navbar - Fond bleu */
+         .navbar-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: gray;
+            transition: 0.3s ease-in-out;
+            z-index: 1000;
+        }
+         /* Effet de fond coloré au défilement */
+         .navbar-top.scrolled {
+            background: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+            backdrop-filter: blur(10px); /* Effet de flou */
+            padding: 10px 20px;
+        }
+        .navbar-top ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-top ul li {
+            display: inline;
+        }
+        .navbar-top ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+        .navbar-top ul li a:hover {
+            color: #f4a261;
+        }
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        /* Deuxième navbar - Fond noir */
+        .navbar-bottom {
+            margin-top: 70px;
+            background-color: #006633; /* Noir */
+            padding: 15px 20px;
+            text-align: center;
+        }
+        .navbar-bottom ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .navbar-bottom  ul li {
+            display: inline;
+        }
+
+        .navbar-bottom  ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .navbar-bottom ul li a:hover {
+            color: #f4a261;
+        }
+        .content {
+            margin-top: 150px; /* Pour éviter que le contenu soit caché */
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+        }
+        /* Carousel styling */
+        #introCarousel,
+        .carousel-inner,
+        .carousel-item,
+        .carousel-item.active {
+          height: 100vh;
+          
+        }
+
+        .carousel-item:nth-child(1) {
+          background-image: url("{% static 'img/Passport.jpg'%}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+
+        }
+        .carousel-item:nth-child(2) {
+          background-image: url("{% static 'img/CIN.jpg'%}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+        .carousel-item:nth-child(3) {
+          background-image: url("{% static 'img/permis.jpg'%}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center center;
+        }
+         /* div styling */
+        #wrapper{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        }
+
+        .content{
+            color: #FFFFFF;
+            font-size: 26px;
+            font-weight: bold;
+            text-shadow: -1px -1px 1px #000, 1px 1px 1px #000;
+            position: relative;
+            z-index: 100;
+        }
+
+        .background{
+            color: #999999;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -100;
+        }
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #introCarousel {
+    margin-top: -58.59px;
+  }
+  #introCarousel,
+  .carousel-inner,
+  .carousel-item,
+  .carousel-item.active {
+    height: 50vh;
+  }
+}
+
+</style>
+      <!-- Navbar top-->
+      <nav class="navbar-top navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+        <div class="container-fluid">
+          <!-- Navbar brand -->
+         
+          <a class="navbar-top-brand nav-link" target="_blank" href="#">
+            <!-- <strong>Connexion</strong> -->
+            <button class="btn btn-outline-info" type="submit">Connexion</button>
+          </a>
+          <ul>
+
+            <li><a href="#"><i class="fa fa-phone"></i> +221 77 000 00 00 </a></li>
+            <li><a href="#"><i class="fa-solid fa-envelope"></i> piecesperdues@orange.sn </a></li>
+            <li><a href="#"><i class="fa-solid fa-thin fa-location-dot"></i>  Adresse: Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></li>
+            <!-- Icons -->
+            <li class="nav-item me-3 me-lg-0">
+              <a href="#" rel="nofollow" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" rel="nofollow" target="_blank"><i class="fab fa-x"></i></a>
+              <a href="#" rel="nofollow" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="#" rel="nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </li>
+        </ul>
+          <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#navbarExample01"
+            aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+          
+        </div>
+      </nav>
+ <!-- Navbar Top-->
+
+ <!-- Navbar bottom-->
+ <nav class="navbar navbar-bottom expand-sd navbar-dark d-none d-lg-block" style="z-index: 500; ">
+  <div class="container-fluid">
+    
+    <div class="navbar-bottom-expand-lg center-content-center; " 
+    id="navbarExample01" d-flex>
+      <ul class="navbarbottom-nav mb-2 mb-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
+        </li>
+        <li class="nav-bottom-item">
+          <a class="nav-link" href="#" rel="nofollow"
+            target="_blank">Objets perdus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" target="_blank">Objets trouvés</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" target="_blank">Recherches</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" target="_blank">Profils</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- Navbar -->
+      <!-- Carousel wrapper -->
+      <div id="introCarousel" class="carousel slide carousel-fade shadow-2-strong" data-mdb-carousel-init>
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+          <li data-mdb-target="#introCarousel" data-mdb-slide-to="0" class="active"></li>
+          <li data-mdb-target="#introCarousel" data-mdb-slide-to="1"></li>
+          <li data-mdb-target="#introCarousel" data-mdb-slide-to="2"></li>
+        </div>
+
+        <!-- Inner -->
+        <div class="carousel-inner">
+          <!-- Single item -->
+          <div class="carousel-item active">
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+              <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white text-center" data-mdb-theme="dark">
+                  <h1 class="mb-3">Système de suivi des Objets Perdus</h1>
+                  <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
+                  <a
+                    class="btn btn-outline-success btn-lg m-2" data-mdb-ripple-init
+                    href="#"
+                    role="button"
+                    rel="nofollow"
+                    target="_blank"
+                    >Passeport</a
+                  >
+                  <a
+                    class="btn btn-outline-warning btn-lg m-2" data-mdb-ripple-init
+                    href="#"
+                    target="_blank"
+                    role="button"
+                    >Carte d'identité nationale</a
+                  >
+                  <a
+                  class="btn btn-outline-danger btn-lg m-2" data-mdb-ripple-init
+                  href="#"
+                  target="_blank"
+                  role="button"
+                  >Permis de conduire et Autres</a
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Single item -->
+          <div class="carousel-item">
+            <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
+              <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white text-center">
+                  <h1 class="mb-3">Système de suivi des Objets Perdus</h1>
+                  <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
+                  <a
+                  class="btn btn-outline-warning btn-lg m-2" data-mdb-ripple-init
+                  href="#"
+                  target="_blank"
+                  role="button"
+                  >Carte d'identité nationale</a
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Single item -->
+          <div class="carousel-item">
+            <div
+              class="mask"
+              style="
+                background: linear-gradient(
+                  45deg,
+                  rgba(29, 236, 197, 0.7),
+                  rgba(91, 14, 214, 0.7) 100%
+                );
+              "
+            >
+              <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white text-center" data-mdb-theme="dark">
+                  <h1 class="mb-3">Système de suivi des Objets Perdus</h1>
+                  <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
+                  <a
+                  class="btn btn-outline-danger btn-lg m-2" data-mdb-ripple-init
+                  href="#"
+                  target="_blank"
+                  role="button"
+                  >Permis de conduire et Autres</a
+                >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Inner -->
+
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#introCarousel" role="button" data-mdb-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Précédent</span>
+        </a>
+        <a class="carousel-control-next" href="#introCarousel" role="button" data-mdb-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Suivant</span>
+        </a>
+      </div>
+      <!-- Carousel wrapper -->
+    </header>
+    <!--Main Navigation-->
+
+    <!--Main layout-->
+    <main class="mt-5">
+      <div class="container">
+        <hr class="my-5" />
+        <h5  style="color: #006633;"> ---- Déclarations d'objets perdus </h5><br><br>
+        <!--Section: Content-->
+        <section class="text-left">
+          <h2 class="mb-5"><strong>Marches à suivre . . .</strong></h2>
+          <div class="row">
+            <div class="col-lg-4 col-md-12 mb-4">
+              <div class="card">
+                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                  <img
+                    src="{% static 'img/etape01.jpg'%}"
+                    class="img-fluid"
+                  />
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Etape I</h5>
+                  <p class="card-text">
+                    La Première étape de la déclaration de perte est de renseigner les informations nécessaires
+                    afin de faciliter la recherche ...
+                  </p>
+                  <a href="#!" class="btn btn-success" data-mdb-ripple-init>1.Faire une déclaration</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card">
+                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                  <img
+                    src="{% static 'img/etape02.jpg'%}"
+                    class="img-fluid"
+                  />
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Etape II</h5>
+                  <p class="card-text">
+                  La seconde étape consiste à lancer une recherche selon la nature de la pièce perdue, la date de déclaration etc  ... 
+                  </p>
+                  <a href="#!" class="btn btn-success" data-mdb-ripple-init>2. Lancer la recherche ... </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+              <div class="card">
+                <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                  <img
+                    src="{% static 'img/etape03.jpg'%}"
+                    class="img-fluid"
+                  />
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </a>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Etape III</h5>
+                  <p class="card-text">
+                    En cas de localisation d'une pièce perdue, une Notification d'informations sera envoyée
+                    à la personne ...
+                  </p>
+                  <a href="#!" class="btn btn-success" data-mdb-ripple-init>3. Notification ...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!--Section: Content-->
+       
+        <hr class="my-5" />
+        <h5  style="color: #006633;"> ---- Partenariat avec les entreprises   </h5><br><br>
+         <!--Section: Content-->
+         <section>
+          <div class="row">
+            <div class="col-md-4 gx-5 mb-4">
+              <div class="bg-image hover-overlay shadow-2-strong" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img src="{% static 'img/trans.jpg'%}" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4 gx-5 mb-4">
+              <div class="bg-image hover-overlay shadow-2-strong" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img src="{% static 'img/commer.jpg'%}" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-4 gx-5 mb-4">
+              <div class="bg-image hover-overlay shadow-2-strong" data-mdb-ripple-init data-mdb-ripple-color="light">
+                <img src="{% static 'img/aero.jpg'%}" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                </a>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        <section>
+          <div class="row">
+            <div class="col-md-12 gx-5 mb-4">
+              <!--Section: Content-->
+              <h5  style="color: #006633;"> --- Situation globale </h5>
+              <div class="container mt-5  bg-success text-white text-justify">
+                <div class="row">
+                  <div class="col-sm-3 gx-5 mb-4">
+                    <h5>Statistiques ...</h5> 
+                    <img src="{% static 'img/lot_passeport.jpg'%}" class="img-thumbnail" />
+                </div>
+                
+                  <div class="col-sm-3"><br>
+                    <div class="alert alert-success">
+                    <p>Carte d'identité nationale</p>
+                    <dl>
+                      <dt>Nombre de déclarations </dt>
+                      <dd>4355</dd>
+                      <dt>Nombre retrouvés</dt>
+                      <dd>3490</dd>
+                    </dl>  
+                  </div>   
+                  </div>
+                  <div class="col-sm-3"><br>
+                    <div class="alert alert-warning">
+                    <p>Passeport, Permis de conduire</p>
+                    <dl>
+                      <dt>Nombre de déclarations </dt>
+                      <dd>4355</dd>
+                      <dt>Nombre retrouvés</dt>
+                      <dd>3490</dd>
+                    </dl>  
+                  </div>  
+                  </div>
+                  <div class="col-sm-3"><br>
+                    <div class="alert alert-danger">
+                    <p>Autres pièces</p>        
+                    <dl>
+                      <dt>Nombre de déclarations </dt>
+                      <dd>4355</dd>
+                      <dt>Nombre retrouvés</dt>
+                      <dd>3490</dd>
+                    </dl>    
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <!--Main layout-->
+    <script>
+      // Effet au scroll pour changer la couleur de fond de la navbar transparente
+      window.addEventListener("scroll", function() {
+          var navbar = document.getElementById("navbar");
+          if (window.scrollY > 50) {
+              navbar.classList.add("scrolled");
+          } else {
+              navbar.classList.remove("scrolled");
+          }
+      });
+  </script>
+   <script>
+    let slideIndex = 0;
+    const carousel = document.getElementById('introCarousel');
+    const slides = carousel.querySelector('.carousel-slide');
+    const images = slides.querySelectorAll('img');
+    const totalSlides = images.length;
+
+    function showSlide(index) {
+        if (index >= totalSlides) {
+            slideIndex = 0;
+        } else if (index < 0) {
+            slideIndex = totalSlides - 1;
+        } else {
+            slideIndex = index;
+        }
+        slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+    }
+
+    document.querySelector('.prev').addEventListener('click', () => {
+        showSlide(slideIndex - 1);
+    });
+
+    document.querySelector('.next').addEventListener('click', () => {
+        showSlide(slideIndex + 1);
+    });
+
+    // Défilement automatique toutes les 5 secondes
+    setInterval(() => {
+        showSlide(slideIndex + 1);
+    }, 5000);
+</script>
+</body>
+{% endblock %}
+{% include 'footer.html' %}
+</html>

@@ -1,0 +1,15 @@
+<!-- gestion_pieces/templates/liste_pieces.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste des pièces disparues</title>
+</head>
+<body>
+    <h1>Pièces Disparues</h1>
+    <ul>
+        {% for piece in pieces %}
+            <li>{{ piece.nom }} - {{ piece.description }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
