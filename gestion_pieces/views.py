@@ -11,3 +11,6 @@ def liste_pieces(request):
 
 def declare_perte(request):
     return render(request,'form.html')
+
+def recherche(request):
+    return render(request,'search.html')

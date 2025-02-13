@@ -1,0 +1,66 @@
+{% load static %}
+{% include 'header.html' %}
+{% include 'head.html' %}
+<head>
+  <link rel="stylesheet" href=" ../static/css/kdiong.css" />
+</head>
+ <body>
+ <div class="bandeau">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-success text-center" data-mdb-theme="dark">
+          <h1 class="mb-3" >Système de suivi des Objets Perdus</h1>
+          <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
+        </div>
+    </div>
+ </div>
+ </body>
+ {% block content %}
+ <div class="container">
+  <div class="search-container">
+      <h4 class="text-center">🔍 Recherche de Pièce Perdue</h4>
+      <form>
+          <div class="mb-3">
+              <label for="nom" class="form-label">Nom :</label>
+              <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom">
+          </div>
+
+          <div class="mb-3">
+              <label for="prenom" class="form-label">Prénom :</label>
+              <input type="text" class="form-control" id="prenom" placeholder="Entrez votre prénom">
+          </div>
+
+          <div class="mb-3">
+              <label for="type_piece" class="form-label">Type de pièce :</label>
+              <div class="col-6">
+              <select class="form-control" id="type_piece">
+                  <option value="">Sélectionnez un type</option>
+                  <option value="CNI">Carte d'Identité Nationale</option>
+                  <option value="Passeport">Passeport</option>
+                  <option value="Permis">Permis de Conduire</option>
+                  <option value="Carte Etudiant">Carte Étudiant</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+              <label for="date_perte" class="form-label">Date de perte :</label>
+              <div class="col-3">
+              <input type="date" class="form-control" id="date_perte">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6"></div>
+            <div class="col-4">
+          <button type="submit" class="btn btn-search">Rechercher</button>
+        </div>
+        <div class="col-2"></div>
+      </div>
+      </form>
+  </div>
+</div>
+
+</body>
+{% endblock %}
+{% include 'footer.html' %}
+</html> 
+ 

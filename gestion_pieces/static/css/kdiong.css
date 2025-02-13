@@ -89,3 +89,89 @@ body {
     color: white;
     font-size: 24px;
 }
+.bandeau {
+    height: 420px; /* Ajustez la hauteur selon vos besoins */
+    background-image: url("../img/bandeau.jpg");
+    background-size: cover; /* Pour que l'image couvre toute la largeur */
+}
+/* Forms */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+  /* Conteneur du formulaire */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+  /* Formulaire avec cadre arrondi */
+  .form-box {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 1200px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+select, input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Bordures arrondies */
+    font-size: 16px;
+    background-color: white;
+}
+/* Optionnel : Effet au focus */
+input:focus, select:focus {
+    border-color: #007bff; /* Bordure bleue au focus */
+    outline: none; /* Supprime le contour bleu par défaut */
+}
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #218838;
+}
+/* search */
+.search-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 1200px;
+    margin: 50px auto;
+}
+.form-control {
+    border-radius: 5px;
+}
+.btn-search {
+    width: 100%;
+    background: #218838;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn-search:hover {
+    background: #ff9900;
+}
