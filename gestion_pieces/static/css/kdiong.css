@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+
+    height: 100vh;
+}
+
+ /* Première navbar - Fond bleu */
+ .navbar-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: gray;
+    transition: 0.3s ease-in-out;
+    z-index: 1000;
+}
+ /* Effet de fond coloré au défilement */
+ .navbar-top.scrolled {
+    background: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    padding: 10px 20px;
+}
+.navbar-top ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-top ul li {
+    display: inline;
+}
+.navbar-top ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+.navbar-top ul li a:hover {
+    color: #f4a261;
+}
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+/* Deuxième navbar - Fond noir */
+.navbar-bottom {
+    margin-top: 70px;
+    background-color: #006633; /* Noir */
+    padding: 15px 20px;
+    text-align: center;
+}
+.navbar-bottom ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar-bottom  ul li {
+    display: inline;
+}
+
+.navbar-bottom  ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+
+.navbar-bottom ul li a:hover {
+    color: #f4a261;
+}
+.content {
+    margin-top: 150px; /* Pour éviter que le contenu soit caché */
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+}

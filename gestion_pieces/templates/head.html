@@ -1,0 +1,62 @@
+{% load static %}
+ <!-- Navbar top-->
+  <nav class="navbar-top navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
+    <div class="container-fluid">
+      <!-- Navbar brand -->
+     
+      <a class="navbar-top-brand nav-link"  href="#">
+        <!-- <strong>Connexion</strong> -->
+        <button class="btn btn-outline-info" type="submit">Connexion</button>
+      </a>
+      <ul>
+
+        <li><a href="#"><i class="fa fa-phone"></i> +221 77 000 00 00 </a></li>
+        <li><a href="#"><i class="fa-solid fa-envelope"></i> piecesperdues@orange.sn </a></li>
+        <li><a href="#"><i class="fa-solid fa-thin fa-location-dot"></i>  Adresse: Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></li>
+        <!-- Icons -->
+        <li class="nav-item me-3 me-lg-0">
+          <a href="#" rel="nofollow" ><i class="fab fa-facebook-f"></i></a>
+          <a href="#" rel="nofollow" ><i class="fab fa-x"></i></a>
+          <a href="#" rel="nofollow" ><i class="fab fa-instagram"></i></a>
+          <a href="#" rel="nofollow" ><i class="fab fa-linkedin-in"></i></a>
+        </li>
+    </ul>
+      <button class="navbar-toggler" type="button" data-mdb-collapse-init data-mdb-target="#navbarExample01"
+        aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+    </div>
+  </nav>
+<!-- Navbar Top-->
+
+<!-- Navbar bottom-->
+<nav class="navbar navbar-bottom expand-sd navbar-dark d-none d-lg-block" style="z-index: 500; ">
+<div class="container-fluid">
+
+<div class="navbar-bottom-expand-lg center-content-center; " 
+id="navbarExample01" d-flex>
+  <ul class="navbarbottom-nav mb-2 mb-lg-0">
+    <li class="nav-item active">
+      <a class="nav-link" aria-current="page" href="{% url 'accueil' %}"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
+    </li>
+    <li class="nav-bottom-item">
+      <a class="nav-link" href="{% url 'liste_pieces' %}" rel="nofollow"
+        >Objets perdus</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'declare' %}" >Déclarer une perte</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" >Recherches</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" >Profils</a>
+    </li>
+  </ul>
+</div>
+</div>
+</nav>
+<!-- Navbar -->
+ 
+

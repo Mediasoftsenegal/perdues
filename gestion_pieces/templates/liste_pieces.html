@@ -1,15 +1,68 @@
 <!-- gestion_pieces/templates/liste_pieces.html -->
+{% load static %}
+{% include 'header.html' %}
+{% include 'head.html' %}
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Liste des pièces disparues</title>
+    <link rel="stylesheet" href="{% static '/css/kdiong.css' %} " />
 </head>
+<style>
+    .bandeau {
+  height: 420px; /* Ajustez la hauteur selon vos besoins */
+  background-image: url("{% static 'img/bandeau.jpg'%}");
+  background-size: cover; /* Pour que l'image couvre toute la largeur */
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
 <body>
-    <h1>Pièces Disparues</h1>
-    <ul>
-        {% for piece in pieces %}
-            <li>{{ piece.nom }} - {{ piece.description }}</li>
-        {% endfor %}
-    </ul>
+ <div class="bandeau">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-success text-center" data-mdb-theme="dark">
+          <h1 class="mb-3" >Système de suivi des Objets Perdus</h1>
+          <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
+        </div>
+      </div>
+ </div>
+ {% block content %}
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <h2>Liste des pièces perdues</h2>
+            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <table>
+                <tr>
+                  <th>Nom de la pièce</th>
+                  <th>Description</th>
+                  <th>Date déclaration</th>
+                  <th>Image</th>
+                </tr>
+                <tr>
+                    {% for piece in pieces %}
+                    <li>{{ piece.nom }}</li>
+                    <li>{{ piece.description }}</li>
+                    <li>{{ piece.date_de_declaration }}</li>
+                    <li>{{ piece.image }}</li>
+                     {% endfor %}
+                </tr>
+              </table>
+        </div>
+      </div>
 </body>
+{% endblock %}
+{% include 'footer.html' %}
 </html>

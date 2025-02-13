@@ -21,5 +21,6 @@ from gestion_pieces import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.accueil, name='accueil'),
-    path('pieces/', views.liste_pieces, name='liste_pieces'),
+    path('liste_pieces/', views.liste_pieces, name='liste_pieces'),
+    path('declare/',views.declare_perte, name='declare'),
 ]

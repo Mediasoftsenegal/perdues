@@ -8,3 +8,6 @@ def accueil(request):
 def liste_pieces(request):
     pieces = PieceDisparue.objects.all()
     return render(request, 'liste_pieces.html', {'pieces': pieces})
+
+def declare_perte(request):
+    return render(request,'form.html')

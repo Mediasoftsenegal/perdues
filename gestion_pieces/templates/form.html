@@ -1,72 +1,89 @@
-<div class="row d-flex justify-content-center">
-    <div class="col-md-6">
-      <form>
-        <!-- 2 column grid layout with text inputs for the first and last names -->
-        <div class="row mb-4">
-          <div class="col">
-            <div class="form-outline" data-mdb-input-init>
-              <input type="text" id="form3Example1" class="form-control" />
-              <label class="form-label" for="form3Example1">First name</label>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-outline" data-mdb-input-init >
-              <input type="text" id="form3Example2" class="form-control" />
-              <label class="form-label" for="form3Example2">Last name</label>
-            </div>
-          </div>
+<!-- gestion_pieces/templates/liste_pieces.html -->
+{% load static %}
+{% include 'header.html' %}
+{% include 'head.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static '/css/kdiong.css' %} " />
+</head>
+<style>
+    .bandeau {
+  height: 420px; /* Ajustez la hauteur selon vos besoins */
+  background-image: url("{% static 'img/bandeau.jpg'%}");
+  background-size: cover; /* Pour que l'image couvre toute la largeur */
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<body>
+ <div class="bandeau">
+    <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-success text-center" data-mdb-theme="dark">
+          <h1 class="mb-3" >Système de suivi des Objets Perdus</h1>
+          <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
         </div>
-
-        <!-- Email input -->
-        <div class="form-outline mb-4" data-mdb-input-init>
-          <input type="email" id="form3Example3" class="form-control" />
-          <label class="form-label" for="form3Example3">Email address</label>
-        </div>
-
-        <!-- Password input -->
-        <div class="form-outline mb-4" data-mdb-input-init>
-          <input type="password" id="form3Example4" class="form-control" />
-          <label class="form-label" for="form3Example4">Password</label>
-        </div>
-
-        <!-- Checkbox -->
-        <div class="form-check d-flex justify-content-center mb-4">
-          <input
-            class="form-check-input me-2"
-            type="checkbox"
-            value=""
-            id="form2Example3"
-            checked
-          />
-          <label class="form-check-label" for="form2Example3">
-            Subscribe to our newsletter
-          </label>
-        </div>
-
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init>
-          Sign up
-        </button>
-
-        <!-- Register buttons -->
-        <div class="text-center">
-          <p>or sign up with:</p>
-          <button type="button" class="btn btn-primary btn-floating mx-1" data-mdb-ripple-init>
-            <i class="fab fa-facebook-f"></i>
-          </button>
-
-          <button type="button" class="btn btn-primary btn-floating mx-1" data-mdb-ripple-init>
-            <i class="fab fa-google"></i>
-          </button>
-
-          <button type="button" class="btn btn-primary btn-floating mx-1" data-mdb-ripple-init>
-            <i class="fab fa-twitter"></i>
-          </button>
-
-          <button type="button" class="btn btn-primary btn-floating mx-1" data-mdb-ripple-init>
-            <i class="fab fa-github"></i>
-          </button>
-        </div>
-      </form>
     </div>
-  </div>
+ </div>
+ {% block content %}
+ <div class="row d-flex justify-content-center">
+  <div class="col-md-6"><br> 
+    <h2> Formulaire de déclaration de perte </h2><br>
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div class="row mb-4">
+        <div class="col">
+          <div class="bg-success rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s" style="visibility: visible; animation-delay: 0.9s; animation-name: zoomIn;">
+          <div class="row g-5">
+            <div class="col-lg-12 wow slideInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: slideInUp;">
+                <form>
+                    <div class="row g-12">
+                        <div class="col-12">
+                          <select class="form-select bg-light border-0" style="height: 55px;">
+                              <option selected="">Nom de la pièce</option>
+                              <option value="carte identite">Carte d'identité</option>
+                              <option value="passeport">Passeport</option>
+                              <option value="permis de conduire">Permis de conduire</option>
+                          </select>
+                        </div>
+                        <br> 
+                        <div class="col-12">
+                          <textarea class="form-control border-0 bg-light px-4 py-3" name="description" rows="4" placeholder="Description"></textarea>
+                        </div>
+                        <br> 
+                        <div class="col-6">
+                          <input type="date" class="form-control border-0 bg-light px-4" name="date_de_declaration" placeholder="Date de déclaration" style="height: 55px;">
+                        </div>
+                        <br> 
+                        <div class="col-md-9">
+                            <input type="file" class="form-control border-0 bg-light px-4"  name="image" accept="image/png, image/jpeg"  style="height: 55px;">
+                        </div>
+                        <br> 
+                        <div class="col-6" ALign="left">
+                            <button class="btn btn-warning w-100 py-3" type="submit">Valider</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+      </div> 
+    </div>
+</div>
+</body>
+{% endblock %}
+{% include 'footer.html' %}
+</html>
+

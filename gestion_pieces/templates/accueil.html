@@ -1,5 +1,5 @@
  
-    {% load static %}
+{% load static %}
 {% include 'header.html' %}
 <body>
   {% block content %}
@@ -17,7 +17,7 @@
             height: 100vh;
         }
 
-         /* Première navbar - Fond bleu */
+         /* Première navbar - Fond gris */
          .navbar-top {
             position: fixed;
             top: 0;
@@ -61,10 +61,10 @@
             font-size: 24px;
             font-weight: bold;
         }
-        /* Deuxième navbar - Fond noir */
+        /* Deuxième navbar - Fond vert */
         .navbar-bottom {
             margin-top: 70px;
-            background-color: #006633; /* Noir */
+            background-color: #006633; /* vert */
             padding: 15px 20px;
             text-align: center;
         }
@@ -202,20 +202,20 @@
     id="navbarExample01" d-flex>
       <ul class="navbarbottom-nav mb-2 mb-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" aria-current="page" href="#"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
+          <a class="nav-link" aria-current="page" href="{% url 'accueil' %}"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
         </li>
         <li class="nav-bottom-item">
-          <a class="nav-link" href="#" rel="nofollow"
-            target="_blank">Objets perdus</a>
+          <a class="nav-link" href="{% url 'liste_pieces' %}" rel="nofollow"
+           >Objets perdus</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" target="_blank">Objets trouvés</a>
+          <a class="nav-link" href="{% url 'declare' %}" >Déclarer une perte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" target="_blank">Recherches</a>
+          <a class="nav-link" href="#" >Recherches</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" target="_blank">Profils</a>
+          <a class="nav-link" href="#" >Profils</a>
         </li>
       </ul>
     </div>
@@ -240,33 +240,11 @@
                 <div class="text-white text-center" data-mdb-theme="dark">
                   <h1 class="mb-3">Système de suivi des Objets Perdus</h1>
                   <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
-                  <a
-                    class="btn btn-outline-success btn-lg m-2" data-mdb-ripple-init
-                    href="#"
-                    role="button"
-                    rel="nofollow"
-                    target="_blank"
-                    >Passeport</a
-                  >
-                  <a
-                    class="btn btn-outline-warning btn-lg m-2" data-mdb-ripple-init
-                    href="#"
-                    target="_blank"
-                    role="button"
-                    >Carte d'identité nationale</a
-                  >
-                  <a
-                  class="btn btn-outline-danger btn-lg m-2" data-mdb-ripple-init
-                  href="#"
-                  target="_blank"
-                  role="button"
-                  >Permis de conduire et Autres</a
-                >
                 </div>
               </div>
             </div>
           </div>
-
+          
           <!-- Single item -->
           <div class="carousel-item">
             <div class="mask" style="background-color: rgba(0, 0, 0, 0.3);">
@@ -274,13 +252,6 @@
                 <div class="text-white text-center">
                   <h1 class="mb-3">Système de suivi des Objets Perdus</h1>
                   <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
-                  <a
-                  class="btn btn-outline-warning btn-lg m-2" data-mdb-ripple-init
-                  href="#"
-                  target="_blank"
-                  role="button"
-                  >Carte d'identité nationale</a
-                >
                 </div>
               </div>
             </div>
@@ -302,20 +273,51 @@
                 <div class="text-white text-center" data-mdb-theme="dark">
                   <h1 class="mb-3">Système de suivi des Objets Perdus</h1>
                   <h5 class="mb-4">Déclaraton en ligne des pièces administratives perdues</h5>
-                  <a
-                  class="btn btn-outline-danger btn-lg m-2" data-mdb-ripple-init
-                  href="#"
-                  target="_blank"
-                  role="button"
-                  >Permis de conduire et Autres</a
-                >
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- Inner -->
-
+        <div class="container-fluid facts py-5 pt-lg-0">
+          <div class="container py-5 pt-lg-0">
+              <div class="row gx-0">
+                  <div class="col-lg-4 wow zoomIn" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;">
+                      <div class="bg-success shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                          <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                              <i class="fa fa-book-open-reader text-success"></i>
+                          </div>
+                          <div class="ps-4">
+                              <h5 class="text-white mb-0">Passeport</h5>
+                              <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 wow zoomIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: zoomIn;">
+                      <div class="bg-warning shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                          <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                              <i class="fa fa-book text-success"></i>
+                          </div>
+                          <div class="ps-4">
+                              <h5 class="text-white mb-0">Carte d'identité nationale</h5>
+                              <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-4 wow zoomIn" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: zoomIn;">
+                      <div class="bg-danger shadow d-flex align-items-center justify-content-center p-4" style="height: 150px;">
+                          <div class="bg-white d-flex align-items-center justify-content-center rounded mb-2" style="width: 60px; height: 60px;">
+                              <i class="fa-solid fa-book-atlas text-success"></i>
+                          </div>
+                          <div class="ps-4">
+                              <h5 class="text-white mb-0">Permis de conduire et Autres</h5>
+                              <h1 class="text-white mb-0" data-toggle="counter-up">12345</h1>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
         <!-- Controls -->
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-mdb-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -329,15 +331,16 @@
       <!-- Carousel wrapper -->
     </header>
     <!--Main Navigation-->
-
+    
     <!--Main layout-->
-    <main class="mt-5">
+    <main class="mt-5"><br><br><br><br><br>
       <div class="container">
-        <hr class="my-5" />
-        <h5  style="color: #006633;"> ---- Déclarations d'objets perdus </h5><br><br>
+        
+        <!-- <hr class="my-5" /> -->
+        <h5  style="color: #006633;"> ---- Déclarations d'objets perdus </h5>
         <!--Section: Content-->
         <section class="text-left">
-          <h2 class="mb-5"><strong>Marches à suivre . . .</strong></h2>
+          <h2 class="mb-5"><strong>&nbsp;&nbsp;Marches à suivre . . .</strong></h2>
           <div class="row">
             <div class="col-lg-4 col-md-12 mb-4">
               <div class="card">
