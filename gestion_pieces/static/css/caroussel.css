@@ -1,0 +1,23 @@
+.carousel-container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    padding: 10px;
+    border-radius: 10px;
+}
